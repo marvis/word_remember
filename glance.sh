@@ -1,13 +1,13 @@
 #i=0
-i=52
+i=`cat progress`
 pword1=""
 ptran1=""
 pword2=""
 ptran2=""
 pword3=""
 ptran3=""
-
-while [ 1 ]
+j=$i
+while [ $i -lt $[j+50] ]
 do 
 	i=$[i+1]
 	line=`sed -n "${i}p" words`
