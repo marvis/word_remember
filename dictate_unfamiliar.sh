@@ -7,7 +7,7 @@ do
 	score=`echo "$line" | awk -F \! '{print $3}'`
 	if [[ $score -gt "0" ]];
 	then
-		say $word; read line; k=0; while [ "$line" != "$word" -a $k -lt 2 ]; do echo $tran ;say $word; read line; k=$[k+1]; done; echo -n "$word"; echo -e "\t$tran";
+		say $word; read line; k=0; while [ "$line" != "$word" -a $k -lt 2 ]; do echo $tran ;say $word; read line; k=$[k+1]; done; echo "$word `dic $word | grep "\[.*\]" | head -n 1` $tran";
 	fi
 	if [[ "$k" = "2" ]]
 	then 
