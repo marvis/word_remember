@@ -1,6 +1,8 @@
-i=1
+i=0
+line_num=`cat unfamiliar | wc -l`
 while [ "1" ]
 do 
+	if [ "$1" = "" ]; then i=$[RANDOM % line_num + 1]; else i=$[i+1]; fi
 	line=`sed -n "${i}p" unfamiliar`
 	word=`echo "$line" | awk -F \! '{print $1}'`
 	tran=`echo "$line" | awk -F \! '{print $2}'`
@@ -17,6 +19,6 @@ do
 			score2=$[score2-1]
 		fi
 	fi
-	sed  "${i}s/^.*\$/$word!$tran!$score1!$score2/" unfamiliar  > .unfamiliar && mv .unfamiliar  unfamiliar
-	i=$[i+1]
+	sed  "${i}s/^.*\$/`echo "$word!$tran!$score1!$score2" | sed 's/\//\\\\\//g'`/" unfamiliar  > .unfamiliar && mv .unfamiliar  unfamiliar
+	#sed  "${i}s/^.*\$/$word!$tran!$score1!$score2/" unfamiliar  > .unfamiliar && mv .unfamiliar  unfamiliar
 done
