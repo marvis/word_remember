@@ -1,6 +1,6 @@
 i=0
 line_num=`cat unfamiliar | wc -l`
-while [ "1" ]
+while [[ "$i" -le "$line_num" ]]
 do 
 	if [ "$1" = "" ]; then i=$[RANDOM % line_num + 1]; else i=$[i+1]; fi
 	line=`sed -n "${i}p" unfamiliar`
