@@ -1,0 +1,10 @@
+glance.sh               glance the words in next progess
+dictate_words.sh        dictation in file words to fetch unfamiliar words
+dictate_unfamiliar.sh   dictation in file unfamiliar to familiar strange words according to the english
+dictate_reverse_unfamiliar.sh   dictation in file unfamiliar to familiar strange words accordint to the translation
+
+== unfamiliar level ==
+0    familiar
+1    not very familiar
+2    unfamiliar
+> 2  very unfamiliar
